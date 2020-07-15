@@ -1,5 +1,5 @@
 package dml.common.id;
 
-public interface IdGenerator {
-	String generateId();
+public interface IdGenerator<ID> {
+	ID generateId();
 }
