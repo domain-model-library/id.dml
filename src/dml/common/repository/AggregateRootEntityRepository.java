@@ -5,10 +5,8 @@ package dml.common.repository;
  * 
  * @author neo
  *
- * @param <E>
- *            定义E类型的实体为聚合根
- * @param <I>
- *            实体的id类型
+ * @param <E> 定义E类型的实体为聚合根
+ * @param <I> 实体的id类型
  */
 public interface AggregateRootEntityRepository<E, I> {
 	/**
@@ -16,7 +14,7 @@ public interface AggregateRootEntityRepository<E, I> {
 	 * 
 	 * @param entity
 	 */
-	void putEntity(E entity);
+	E putEntity(E entity);
 
 	E getEntity(I id);
 
