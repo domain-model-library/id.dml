@@ -6,9 +6,9 @@ package dml.common.repository;
  * @author neo
  *
  * @param <E> 定义E类型的实体为聚合根
- * @param <I> 实体的id类型
+ * @param <ID> 实体的id类型
  */
-public interface AggregateRootEntityRepository<E, I> {
+public interface AggregateRootEntityRepository<E, ID> {
 	/**
 	 * 只有仓库原来没有该实体才会放入
 	 * 
@@ -16,8 +16,6 @@ public interface AggregateRootEntityRepository<E, I> {
 	 */
 	E putEntity(E entity);
 
-	E getEntity(I id);
-
-	void removeEntity(I id);
+	E getEntity(ID id);
 
 }
