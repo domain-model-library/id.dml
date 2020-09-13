@@ -1,5 +1,5 @@
 package dml.common.repository;
 
 public interface CopyFromRepository<E, ID> {
-	public E copy(ID id);
+	public E copyFromRepository(ID id);
 }

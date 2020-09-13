@@ -15,28 +15,28 @@ public abstract class SimpleRepository<E, ID> implements CopyFromRepository<E, I
 	protected Map<ID, E> map = new HashMap<>();
 
 	@Override
-	public E take(ID id) {
+	public E takeFromRepository(ID id) {
 		return map.get(id);
 	}
 
 	@Override
-	public E remove(ID id) {
+	public E removeFromRepository(ID id) {
 		return map.remove(id);
 	}
 
 	@Override
-	public void put(E entity) {
+	public void putToRepository(E entity) {
 		map.put(getId(entity), entity);
 	}
 
 	@Override
-	public E putIfAbsent(E entity) {
+	public E putIfAbsentToRepository(E entity) {
 		map.put(getId(entity), entity);
 		return entity;
 	}
 
 	@Override
-	public E copy(ID id) {
+	public E copyFromRepository(ID id) {
 		return map.get(id);
 	}
 

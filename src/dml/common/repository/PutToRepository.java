@@ -1,5 +1,5 @@
 package dml.common.repository;
 
 public interface PutToRepository<E> {
-	public void put(E entity);
+	public void putToRepository(E entity);
 }
