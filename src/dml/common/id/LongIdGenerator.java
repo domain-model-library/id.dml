@@ -1,6 +1,6 @@
 package dml.common.id;
 
-public class LongIdGenerator implements IdGenerator {
+public class LongIdGenerator implements IdGenerator<Long> {
 
 	private long idValue;
 
@@ -12,8 +12,8 @@ public class LongIdGenerator implements IdGenerator {
 	}
 
 	@Override
-	public String generateId() {
-		return String.valueOf(idValue++);
+	public Long generateId() {
+		return idValue++;
 	}
 
 }
