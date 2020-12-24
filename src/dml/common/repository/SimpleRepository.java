@@ -31,8 +31,7 @@ public abstract class SimpleRepository<E, ID> implements CopyFromRepository<E, I
 
 	@Override
 	public E putIfAbsentToRepository(E entity) {
-		map.put(getId(entity), entity);
-		return entity;
+		return map.putIfAbsent(getId(entity), entity);
 	}
 
 	@Override
