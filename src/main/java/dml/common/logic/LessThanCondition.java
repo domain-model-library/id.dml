@@ -20,4 +20,8 @@ public class LessThanCondition implements Condition<String> {
 		return bd.subtract(toBd).signum() == -1;
 	}
 
+	public String getToStrNum() {
+		return toStrNum;
+	}
+
 }

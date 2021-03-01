@@ -24,4 +24,8 @@ public class Or implements Condition<Object> {
 		return false;
 	}
 
+	public Condition<Object>[] getConditions() {
+		return conditions;
+	}
+
 }
