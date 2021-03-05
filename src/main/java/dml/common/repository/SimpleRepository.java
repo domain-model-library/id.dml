@@ -8,8 +8,10 @@ import java.util.Map;
  * 
  * @author neo
  */
-public abstract class SimpleRepository<E, ID> implements CopyFromRepository<E, ID>, PutIfAbsentToRepository<E>,
-		PutToRepository<E>, RemoveFromRepository<ID, E>, TakeFromRepository<E, ID>
+public abstract class SimpleRepository<E, ID> implements
+		CopyFromRepository<E, ID>, PutIfAbsentToRepository<E>,
+		PutToRepository<E>, RemoveFromRepository<E, ID>,
+		TakeFromRepository<E, ID>
 
 {
 	protected Map<ID, E> map = new HashMap<>();
