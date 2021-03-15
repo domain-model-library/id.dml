@@ -1,5 +1,5 @@
 package dml.common.id;
 
-public interface IdGenerator<ID> {
-	ID generateId();
+public interface IdGenerator<T> {
+	T generateId();
 }
