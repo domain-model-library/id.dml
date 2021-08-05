@@ -4,6 +4,14 @@ public class KeepAlive {
 	private long lastActiveTime;
 	private long maxIdleTime;
 
+	public KeepAlive() {
+	}
+
+	public KeepAlive(long lastActiveTime, long maxIdleTime) {
+		this.lastActiveTime = lastActiveTime;
+		this.maxIdleTime = maxIdleTime;
+	}
+
 	public boolean checkAlive(long currTime) {
 		return (currTime - lastActiveTime) <= maxIdleTime;
 	}
