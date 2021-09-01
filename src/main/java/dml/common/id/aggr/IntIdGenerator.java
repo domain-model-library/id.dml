@@ -1,4 +1,4 @@
-package dml.common.id;
+package dml.common.id.aggr;
 
 public class IntIdGenerator implements IdGenerator<Integer> {
 
