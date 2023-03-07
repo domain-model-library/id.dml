@@ -1,4 +1,4 @@
-package dml.common.id.aggr;
+package dml.id.entity;
 
 import java.util.LinkedList;
 import java.util.List;

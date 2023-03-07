@@ -1,8 +1,8 @@
-package dml.common.id.aggr;
+package dml.id.entity;
 
 import java.util.UUID;
 
-public class UUIDIdGenerator implements IdGenerator<String> {
+public class UUIDGenerator implements IdGenerator<String> {
 
 	@Override
 	public String generateId() {

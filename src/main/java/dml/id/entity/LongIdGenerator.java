@@ -1,4 +1,4 @@
-package dml.common.id.aggr;
+package dml.id.entity;
 
 public class LongIdGenerator implements IdGenerator<Long> {
 
