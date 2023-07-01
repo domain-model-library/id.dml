@@ -1,19 +1,19 @@
 package dml.id.entity;
 
-public class IntIdGenerator implements IdGenerator<Integer> {
+public abstract class IntIdGenerator implements IdGenerator<Integer> {
 
-	private int idValue;
+    private int idValue;
 
-	public IntIdGenerator() {
-	}
+    public IntIdGenerator() {
+    }
 
-	public IntIdGenerator(int minIdValue) {
-		idValue = minIdValue;
-	}
+    public IntIdGenerator(int minIdValue) {
+        idValue = minIdValue;
+    }
 
-	@Override
-	public Integer generateId() {
-		return idValue++;
-	}
+    @Override
+    public Integer generateId() {
+        return idValue++;
+    }
 
 }

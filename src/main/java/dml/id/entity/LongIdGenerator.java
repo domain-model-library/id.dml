@@ -1,19 +1,19 @@
 package dml.id.entity;
 
-public class LongIdGenerator implements IdGenerator<Long> {
+public abstract class LongIdGenerator implements IdGenerator<Long> {
 
-	private long idValue;
+    private long idValue;
 
-	public LongIdGenerator() {
-	}
+    public LongIdGenerator() {
+    }
 
-	public LongIdGenerator(long minIdValue) {
-		idValue = minIdValue;
-	}
+    public LongIdGenerator(long minIdValue) {
+        idValue = minIdValue;
+    }
 
-	@Override
-	public Long generateId() {
-		return idValue++;
-	}
+    @Override
+    public Long generateId() {
+        return idValue++;
+    }
 
 }

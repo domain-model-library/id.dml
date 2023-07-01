@@ -2,7 +2,7 @@ package dml.id.entity;
 
 import java.util.Random;
 
-public class UUIDStyleRandomStringIdGenerator implements IdGenerator<String> {
+public abstract class UUIDStyleRandomStringIdGenerator implements IdGenerator<String> {
 
     private static char[] characters = "abcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
 

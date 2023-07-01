@@ -8,7 +8,8 @@ public class UUIDGeneratorTest {
 
     @Test
     public void generateId() {
-        UUIDGenerator uuidGenerator = new UUIDGenerator();
+        UUIDGenerator uuidGenerator = new UUIDGenerator() {
+        };
         String uuid1 = uuidGenerator.generateId();
         String uuid2 = uuidGenerator.generateId();
         assertNotEquals(uuid1, uuid2);

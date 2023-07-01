@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 import java.time.Instant;
 import java.util.Enumeration;
 
-public class SnowflakeIdGenerator implements IdGenerator<Long> {
+public abstract class SnowflakeIdGenerator implements IdGenerator<Long> {
 
     private static final int UNUSED_BITS = 1; // Sign bit, Unused (always set to 0)
     private static final int EPOCH_BITS = 41;
