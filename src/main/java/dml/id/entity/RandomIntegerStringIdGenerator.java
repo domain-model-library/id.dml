@@ -10,7 +10,7 @@ import java.util.Set;
  *
  * @author neo
  */
-public abstract class RandomIntegerStringIdGenerator implements IdGenerator {
+public class RandomIntegerStringIdGenerator implements IdGenerator {
 
     private Random random;
     private int numbersCount;// 几位数

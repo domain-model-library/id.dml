@@ -1,6 +1,6 @@
 package dml.id.entity;
 
-public abstract class LongIdGenerator implements IdGenerator<Long> {
+public class LongIdGenerator implements IdGenerator<Long> {
 
     private long idValue;
 

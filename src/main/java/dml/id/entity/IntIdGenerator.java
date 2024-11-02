@@ -1,6 +1,6 @@
 package dml.id.entity;
 
-public abstract class IntIdGenerator implements IdGenerator<Integer> {
+public class IntIdGenerator implements IdGenerator<Integer> {
 
     private int idValue;
 
