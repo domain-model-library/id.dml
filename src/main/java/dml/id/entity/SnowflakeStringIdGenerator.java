@@ -9,9 +9,17 @@ public class SnowflakeStringIdGenerator implements IdGenerator<String> {
         this.snowflakeIdGenerator = new SnowflakeIdGenerator(nodeId);
     }
 
+    public SnowflakeStringIdGenerator(long nodeId, int epochBits, int nodeIdBits, int sequenceBits) {
+        this.snowflakeIdGenerator = new SnowflakeIdGenerator(nodeId, epochBits, nodeIdBits, sequenceBits);
+    }
+
     // Let SnowflakeIdGenerator generate a nodeId
     public SnowflakeStringIdGenerator() {
         this.snowflakeIdGenerator = new SnowflakeIdGenerator();
+    }
+
+    public SnowflakeStringIdGenerator(int epochBits, int nodeIdBits, int sequenceBits) {
+        this.snowflakeIdGenerator = new SnowflakeIdGenerator(epochBits, nodeIdBits, sequenceBits);
     }
 
     @Override

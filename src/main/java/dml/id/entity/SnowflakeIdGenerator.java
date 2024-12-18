@@ -7,13 +7,13 @@ import java.util.Enumeration;
 
 public class SnowflakeIdGenerator implements IdGenerator<Long> {
 
-    private static final int UNUSED_BITS = 1; // Sign bit, Unused (always set to 0)
-    private static final int EPOCH_BITS = 41;
-    private static final int NODE_ID_BITS = 10;
-    private static final int SEQUENCE_BITS = 12;
+    private final int UNUSED_BITS = 1; // Sign bit, Unused (always set to 0)
+    private final int EPOCH_BITS;
+    private final int NODE_ID_BITS;
+    private final int SEQUENCE_BITS;
 
-    private static final long maxNodeId = (1L << NODE_ID_BITS) - 1;
-    private static final long maxSequence = (1L << SEQUENCE_BITS) - 1;
+    private final long maxNodeId;
+    private final long maxSequence;
 
     // Epoch (January 1, 2015 Midnight UTC = 2015-01-01T00:00:00Z)
     private static final long EPOCH = 1420070400000L;
@@ -23,20 +23,36 @@ public class SnowflakeIdGenerator implements IdGenerator<Long> {
     private volatile long lastTimestamp = -1L;
     private volatile long sequence = 0L;
 
-    // Create SnowflakeIdGenerator with a nodeId
-    public SnowflakeIdGenerator(long nodeId) {
-        if (nodeId < 0 || nodeId > maxNodeId) {
-            throw new IllegalArgumentException(String.format("NodeId must be between %d and %d", 0, maxNodeId));
+    // Create SnowflakeIdGenerator with configurable bits and a nodeId
+    public SnowflakeIdGenerator(long nodeId, int epochBits, int nodeIdBits, int sequenceBits) {
+        if (nodeId < 0 || nodeId > (1L << nodeIdBits) - 1) {
+            throw new IllegalArgumentException(String.format("NodeId must be between %d and %d", 0, (1L << nodeIdBits) - 1));
+        }
+        if (epochBits + nodeIdBits + sequenceBits + UNUSED_BITS != 64) {
+            throw new IllegalArgumentException("Epoch + NodeId + Sequence bits must be equal to 63");
         }
         this.nodeId = nodeId;
+        this.EPOCH_BITS = epochBits;
+        this.NODE_ID_BITS = nodeIdBits;
+        this.SEQUENCE_BITS = sequenceBits;
+        this.maxNodeId = (1L << NODE_ID_BITS) - 1;
+        this.maxSequence = (1L << SEQUENCE_BITS) - 1;
     }
 
-    // Let SnowflakeIdGenerator generate a nodeId
+    // Let SnowflakeIdGenerator generate a nodeId with configurable bits
+    public SnowflakeIdGenerator(int epochBits, int nodeIdBits, int sequenceBits) {
+        this(createNodeId((1L << nodeIdBits) - 1), epochBits, nodeIdBits, sequenceBits);
+    }
+
+    public SnowflakeIdGenerator(long nodeId) {
+        this(nodeId, 41, 10, 12);
+    }
+
     public SnowflakeIdGenerator() {
-        this.nodeId = createNodeId();
+        this(41, 10, 12);
     }
 
-    private long createNodeId() {
+    private static long createNodeId(long maxNodeId) {
         long nodeId;
         try {
             StringBuilder sb = new StringBuilder();
