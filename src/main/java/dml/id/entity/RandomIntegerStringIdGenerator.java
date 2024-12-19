@@ -26,7 +26,7 @@ public class RandomIntegerStringIdGenerator implements IdGenerator {
 
     @Override
     public String generateId() {
-        if (idsLeft.isEmpty()) {
+        if (idsLeft == null || idsLeft.isEmpty()) {
             return null;
         }
         Random random = new Random();
