@@ -12,13 +12,14 @@ import java.util.Set;
  */
 public class RandomIntegerStringIdGenerator implements IdGenerator {
 
-    private Random random;
     private int numbersCount;// 几位数
 
     private List<Integer> idsLeft;
 
+    public RandomIntegerStringIdGenerator() {
+    }
+
     public RandomIntegerStringIdGenerator(int numbersCount, Set<Integer> idsLeft) {
-        this.random = new Random();
         this.numbersCount = numbersCount;
         this.idsLeft = new LinkedList<>(idsLeft);
     }
@@ -28,6 +29,7 @@ public class RandomIntegerStringIdGenerator implements IdGenerator {
         if (idsLeft.isEmpty()) {
             return null;
         }
+        Random random = new Random();
         int idValue = idsLeft.remove(random.nextInt(idsLeft.size()));
         String id = String.valueOf(idValue);
 
@@ -48,4 +50,15 @@ public class RandomIntegerStringIdGenerator implements IdGenerator {
         return idsLeft;
     }
 
+    public int getNumbersCount() {
+        return numbersCount;
+    }
+
+    public void setNumbersCount(int numbersCount) {
+        this.numbersCount = numbersCount;
+    }
+
+    public void setIdsLeft(List<Integer> idsLeft) {
+        this.idsLeft = idsLeft;
+    }
 }

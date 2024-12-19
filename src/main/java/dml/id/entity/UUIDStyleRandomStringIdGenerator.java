@@ -6,7 +6,6 @@ public class UUIDStyleRandomStringIdGenerator implements IdGenerator<String> {
 
     private static char[] characters = "abcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
 
-    private Random random = new Random();
 
     @Override
     public String generateId() {
@@ -18,6 +17,7 @@ public class UUIDStyleRandomStringIdGenerator implements IdGenerator<String> {
     }
 
     private String subRandomString(int length) {
+        Random random = new Random();
         StringBuilder sbu = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
             sbu.append(characters[random.nextInt(characters.length)]);
