@@ -16,4 +16,11 @@ public class IntIdGenerator implements IdGenerator<Integer> {
         return idValue++;
     }
 
+    public int getIdValue() {
+        return idValue;
+    }
+
+    public void setIdValue(int idValue) {
+        this.idValue = idValue;
+    }
 }

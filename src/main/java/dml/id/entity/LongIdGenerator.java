@@ -16,4 +16,11 @@ public class LongIdGenerator implements IdGenerator<Long> {
         return idValue++;
     }
 
+    public long getIdValue() {
+        return idValue;
+    }
+
+    public void setIdValue(long idValue) {
+        this.idValue = idValue;
+    }
 }
