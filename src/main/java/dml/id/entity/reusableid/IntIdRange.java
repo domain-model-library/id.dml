@@ -43,6 +43,10 @@ public class IntIdRange {
         return null;
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public int getStart() {
         return start;
     }
@@ -58,6 +62,8 @@ public class IntIdRange {
     public void setSize(int size) {
         this.size = size;
     }
+
+
 }
 
 

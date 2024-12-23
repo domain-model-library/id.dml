@@ -81,6 +81,10 @@ public class ReusableIntIdGenerator implements IdGenerator<Integer> {
             IntIdRange idRange = idRangeList.get(i);
             if (idRange.contains(id)) {
                 IntIdRange splitRange = idRange.removeId(id);
+                if (idRange.isEmpty()) {
+                    idRangeList.remove(i);
+                    return;
+                }
                 if (splitRange == null) {
                     return;
                 }
