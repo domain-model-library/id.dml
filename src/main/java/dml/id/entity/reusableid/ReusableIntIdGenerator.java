@@ -106,6 +106,9 @@ public class ReusableIntIdGenerator implements IdGenerator<Integer> {
         }
     }
 
+    public int countIdRanges() {
+        return idRangeList.size();
+    }
 
     public List<IntIdRange> getIdRangeList() {
         return idRangeList;
