@@ -20,8 +20,8 @@ public class SnowflakeIdGenerator implements IdGenerator<Long> {
 
     private final long nodeId;
 
-    private volatile long lastTimestamp = -1L;
-    private volatile long sequence = 0L;
+    private long lastTimestamp = -1L;
+    private long sequence = 0L;
 
     // Create SnowflakeIdGenerator with configurable bits and a nodeId
     public SnowflakeIdGenerator(long nodeId, int epochBits, int nodeIdBits, int sequenceBits) {
