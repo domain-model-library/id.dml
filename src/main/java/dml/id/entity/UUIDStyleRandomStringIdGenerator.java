@@ -9,15 +9,15 @@ public class UUIDStyleRandomStringIdGenerator implements IdGenerator<String> {
 
     @Override
     public String generateId() {
-        return subRandomString(8)
-                + '-' + subRandomString(4)
-                + '-' + subRandomString(4)
-                + '-' + subRandomString(4)
-                + '-' + subRandomString(12);
+        Random random = new Random();
+        return subRandomString(random, 8)
+                + '-' + subRandomString(random, 4)
+                + '-' + subRandomString(random, 4)
+                + '-' + subRandomString(random, 4)
+                + '-' + subRandomString(random, 12);
     }
 
-    private String subRandomString(int length) {
-        Random random = new Random();
+    private String subRandomString(Random random, int length) {
         StringBuilder sbu = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
             sbu.append(characters[random.nextInt(characters.length)]);
